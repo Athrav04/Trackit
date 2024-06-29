@@ -194,15 +194,15 @@ export const getTransactionStatus = (date: Date) => {
   return date > twoDaysAgo ? "Processing" : "Success";
 };
 
-export const formSchema = (type) => z.object({
-  FirstName: type === 'sign-in'? z.string().optional() : z.string().min(2),
-  LastName: type === 'sign-in'? z.string().optional() : z.string(),
-  Address: type === 'sign-in'? z.string().optional() : z.string().min(5),
-  State: type === 'sign-in'? z.string().optional() : z.string().max(20),
-  PostalCode: type === 'sign-in'? z.string().optional() : z.string().min(6).max(6),
-  DateOfBirth: type === 'sign-in'? z.string().optional() : z.string(),
-  PhoneNumber: type === 'sign-in'? z.string().optional() : z.string().min(10).max(10),
+export const formSchema = (type:string) => z.object({
+  firstName: type === 'signIn'? z.string().optional() : z.string().min(2),
+  lastName: type === 'signIn'? z.string().optional() : z.string(),
+  address: type === 'signIn'? z.string().optional() : z.string().min(5),
+  state: type === 'signIn'? z.string().optional() : z.string().max(20),
+  postalCode: type === 'signIn'? z.string().optional() : z.string().min(6).max(6),
+  dateOfBirth: type === 'signIn'? z.string().optional() : z.string(),
+  phoneNumber: type === 'signIn'? z.string().optional() : z.string().min(10).max(10),
 
-  Email:z.string().email(),
-  Password:z.string().min(5)
+  email:z.string().email(),
+  password:z.string().min(5)
 })
